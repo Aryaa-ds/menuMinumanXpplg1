@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan Es Semangka</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-blue-50 min-h-screen items-center justify-center">
+   <nav class="w-full mb-10 bg-blue-500 py-4 shadow-md">
+      <h1 class="text-white text-center text-2xl font-semibold">X PPLG 1</h1>
+    </nav>
+  <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-md space-y-6 relative">
+    <a class="text-3xl font-bold right-10 absolute " href="Index.html">X</a>
+    <h1 class="text-2xl font-bold text-center text-blue-600">Pesan Es Semangka</h1>
+    <form onsubmit="return buatPesanan()" class="space-y-4 relative">
+      <div>
+        <label class="block font-semibold">Nama</label>
+        <input type="text" id="nama" class="w-full border rounded px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block font-semibold">Kelas</label>
+        <input type="text" id="kelas" class="w-full border rounded px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block font-semibold">Jumlah Pembelian</label>
+        <input type="number" id="jumlahEs" value="1" min="1" max="25" class="w-full border rounded px-3 py-2">      
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Beli</button>
+    </form>
+
+  </div>
+
+<script>
+  function buatPesanan() {
+    const nama = document.getElementById('nama').value;
+    const kelas = document.getElementById('kelas').value;
+    const jumlah = parseInt(document.getElementById('jumlahEs').value);
+    const totalHarga = jumlah * 5000;
+
+    const pesan = `Halo, saya ${nama} dari kelas ${kelas}. Saya ingin memesan es Semangka sebanyak ${jumlah} cup. total harga Rp ${totalHarga.toLocaleString()}.`;
+    const nomorTujuan = '+6285747322660'; // Ganti dengan nomor tujuan WA
+    const linkWA = `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`;
+    
+    window.open(linkWA, '_blank');
+    return false;
+  }
+</script>
+</body>
+</html>
